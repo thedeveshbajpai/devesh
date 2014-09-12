@@ -1,9 +1,9 @@
 /*
  * the program here is to test the increment/decrement operatpor
  * 
- * @author dbajpai
+ * @
  * */
-
+//@type name = new type(arguments);
 package test;
 
 
@@ -23,9 +23,11 @@ public class Output {
 		for (int x = 0; x < 8; x++) {
 
 			System.out.println("+++++z===" + (++z));
+			System.out.println("zzzzz="+z);
 			System.out.println("k++++++" + (k++));
-			System.out.println("y=z"+(y=z));
-			System.out.println("y=k"+(y=k));
+			System.out.println("kkkkkk"+k);
+//			System.out.println("y=z"+(y=z));
+//			System.out.println("y=k"+(y=k));
 			java.awt.Toolkit.getDefaultToolkit().beep();
 			Thread.sleep(1000);
 		}
