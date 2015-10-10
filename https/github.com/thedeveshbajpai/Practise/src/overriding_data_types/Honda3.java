@@ -11,7 +11,7 @@ import static java.lang.Math.cos;
 		super.overridingMethod();
 	}
 	public static void main(String args[]) {
-		Bike obj = (Honda3) new Honda3();
+		Bike obj =  new Honda3();
 		System.out.println(obj.speedlimit);// 90
 		System.out.println("PI*Exp="+cos(PI * E));
 		obj.overridingMethod();
