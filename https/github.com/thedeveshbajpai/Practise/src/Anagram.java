@@ -5,7 +5,6 @@
  * modification, are permitted provided that the following conditions
  * are met:
  *
- *   - Redistributions of source code must retain the above copyright
  *     notice, this list of conditions and the following disclaimer.
  *
  *   - Redistributions in binary form must reproduce the above copyright
@@ -27,7 +26,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 public class Anagram {
 
@@ -35,7 +34,7 @@ public class Anagram {
      * Tests whether the passed-in strings are anagrams --
      * containing the exact same number of each letter.
      * Punctuation, case, and order don't matter.
-     * 
+     *
      * @return true if the strings are anagrams; otherwise, false
      */
     public static boolean areAnagrams(String string1,
@@ -54,9 +53,9 @@ public class Anagram {
     }
 
     /**
-     * Removes punctuation & spaces -- everything except 
+     * Removes punctuation & spaces -- everything except
      * letters from the passed-in string.
-     * 
+     *
      * @return a stripped copy of the passed-in string
      */
     protected static String removeJunk(String string) {
@@ -74,9 +73,9 @@ public class Anagram {
         return dest.toString();
     }
 
-    /** 
-     * Sorts the passed-in string.  
-     * 
+    /**
+     * Sorts the passed-in string.
+     *
      * @return a sorted copy of the passed-in string
      */
     protected static String sort(String string) {
