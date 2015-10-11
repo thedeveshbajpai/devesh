@@ -1,10 +1,10 @@
 package overriding_data_types;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
  class Bike {
 	protected int speedlimit = 90;
 
-	public Bike() throws IOException{
+	public Bike() throws IndexOutOfBoundsException, FileNotFoundException{
 		System.out.println("This is Bike Constructor!");
 	}
 
