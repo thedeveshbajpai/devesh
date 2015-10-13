@@ -8,9 +8,10 @@ import java.io.FileNotFoundException;
 		System.out.println("This is Bike Constructor!");
 	}
 
-	protected void overridingMethod() throws RuntimeException{
+	protected void overridingMethod() throws RuntimeException, Exception{
 		//TODO:nothing heress
 		System.out.println("Bike.overridingMethod()");
 	}
+	void logging(){}
 }
 
