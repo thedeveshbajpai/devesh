@@ -490,7 +490,7 @@ public final class Method extends Executable {
                 checkAccess(caller, clazz, obj, modifiers);
             }
         }
-        MethodAccessor ma = methodAccessor;             // read volatile
+        MethodAccessor modifiersa = methodAccessor;             // read volatile
         if (ma == null) {
             ma = acquireMethodAccessor();
         }
