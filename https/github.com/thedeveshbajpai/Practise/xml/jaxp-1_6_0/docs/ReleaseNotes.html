@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head> 
+  <!-- $Id: ReleaseNotes.html,v 1.2 2010/09/03 18:54:18 joehw Exp $ -->
+  <title>JAXP 1.6.0 Release  Notes</title>
+  <link rel="stylesheet" type="text/css" href="style/default.css">
+	<style type="text/css" media="all">
+  <!--
+     a:link    { color:blue; } 
+     a:hover   { color:red;text-decoration:none;} 
+     a:visited { color:purple; }
+     .TBD {
+	     font-style: italic;
+       font-weight: bold;
+	     color: #FF0000;
+     }
+     .Fixed {
+	     font-family: "Courier New", Courier, mono;
+	     font-size: smaller;
+     }
+    .def {
+		  font-style: italic;
+		 }
+     -->
+  </style>
+</head>
+
+
+<body bgcolor="#FFFFFF">
+    <center>
+      <h2><font color="#000099">Java<sup><font size="-2">TM</font></sup> API for XML 
+        Processing Release Notes</font></h2>
+    </center>
+
+    <center>
+      <b>Specification Version:</b> 1.6<br />
+      <b>Reference Implementation (RI) Version:</b> 1.6.0
+      <br>March 3, 2014
+    </center>
+
+    <p>
+        The updates in JAXP 1.6 are primarily motivated by the JDK 8 effort 
+        <a href="http://openjdk.java.net/jeps/162">Prepare for Modularization</a>.
+        To allow for future modularization of the Java SE platform where service 
+        providers may be deployed by means other than JAR files and perhaps without 
+        the service configuration files, the <a href="https://www.jcp.org/en/jsr/detail?id=206">
+        JAXP 1.6 specification</a> requires the 
+        use of the service provider loader facility defined by java.util.ServiceLoader 
+        to load services from service configuration files. This change has been
+        incorporated into JDK 8.
+        Please read below for more details about this update. </p>
+    
+    <p>
+        <p><h3>
+            Changes and bug fixes:
+        </h3>
+        </p>
+    <ol>
+        <li>Locating and loading Service Providers<br>
+            <p>
+            JAXP performs a 4 step procedure to locate and load service providers. In JAXP 1.6,
+            the manual process of reading the service files in the 3rd step is replaced by 
+            using the service provider loader facility defined by java.util.ServiceLoader.
+            For compatibility, please see the compatibility section below.
+            </p>
+        </li>
+        <li>Security<br>
+            <p>
+            JAXP 1.6 RI includes the relevant security fixes that were included in JDK 7 update 51
+            please refer to 
+            <a href="http://www.oracle.com/technetwork/java/javase/7u51-relnotes-2085002.html">
+                JDK 7 update 51 release notes
+            </a> for more details.
+            </p>
+        
+        </li>
+        <li>Others<br>
+            <p>
+                Please refer to:<br><br><a href="changelog.html">The JAXP 1.6.0 Change Log</a>
+            </p>
+        </li>
+    </ol>
+    <p>
+        <p><h3>
+            Compatibility
+        </h3>
+        </p>        
+    <ol>
+        <li>Custom ClassLoaders<br>
+        <p>
+            Service providers across JAXP will now be located consistently following 
+            the process as defined in java.util.ServiceLoader. The changes may result 
+            in some subtle differences from implementations of prior releases where 
+            the provider-configuration file may have been located differently, for example, 
+            by using a different getResourceXXX method of the ClassLoader than ServiceLoader.
+            Applications that implement their own Classloaders shall therefore make sure 
+            that the ClassLoaders' getResourceXXX methods are implemented consistently so as to 
+            maintain compatibility.
+        </p>
+        </li>
+        <li>StAX API<br>
+        <p>
+            The StAX API 1.2, JSR 173 MR3, defined newInstance/newFactory methods that take two 
+            parameters: a factoryId and classLoader.
+            The first parameter (factoryId) did not constrain what the value could be in 
+            the StAX specification, it implied it could be any arbitrary string. With 
+            <a href="https://www.jcp.org/en/jsr/detail?id=206">JAXP 1.6 specification</a> 
+            change, in the context of JAXP, the value of factoryId must be the 
+            name of the base service class if it is intended to represent the name of the 
+            service configuration file, that is, if it is not the name of a System Property.
+        </p>
+        <p>
+            The second parameter (classLoader) was ignored by the factories when looking up 
+            and instantiating the services. This is no longer the case in JAXP 1.6 and JDK 8. 
+            JAXP 1.6 now loads implementations with the specified classLoader when it is not null.
+            
+        </p>
+        </li>
+        <li>JDK Source Level<br>
+        <p>
+            Previous versions of JAXP implementation supported JDK 5. Starting from JAXP 1.6,
+            JDK 6 and later are required due to the use of java.util.ServiceLoader.
+        </p>
+        </li>
+    </ol>
+    <p>
+        <p><h3>
+            End of JAXP Standalone distribution
+        </h3>
+        </p>        
+    <ol>
+        JAXP 1.6  will be the final standalone release.  All future revisions to the JAXP API 
+        will be part of the Java SE specification, starting with Java SE 9.
+        Future JAXP development will be done solely within the <a href="http://openjdk.java.net/">
+        OpenJDK community</a>. Please join us in the <a href="http://openjdk.java.net/">OpenJDK community</a>, 
+        use mailing aliases such as discuss for general discussion, [release]-dev for release-specific and 
+        core-libs-dev for JAXP specific questions. Report bugs at the <a href="https://bugs.openjdk.java.net">
+        JDK Bug System</a> for the xml component.
+            
+
+    </ol>
+
+    </p>
+
+
+</body>
+</html>
