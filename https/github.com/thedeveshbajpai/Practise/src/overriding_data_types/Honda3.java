@@ -5,6 +5,7 @@ import static java.lang.Math.cos;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -35,7 +36,33 @@ import java.util.logging.Logger;
 		System.out.println("PI*Exp="+cos(PI * E));
 		obj.overridingMethod();
        		obj.logging();
+       		Honda3 h3= new Honda3();
+       		h3.fun(null);
+       		System.out.println("java= "+h3.java());
+
+
 	}
+
+	public int java(){
+		return super.java()*-1;
+	}
+
+	public void fun(String s){
+		System.out.println("111111111111");
+	}
+
+	public void fun(Object s){
+		System.out.println("22222222222222");
+	}
+
+	/*public void fun(int s){
+		System.out.println("22222222222222");
+	}*/
+
+
+	/*public void fun(ArrayList l){
+		System.out.println("3333333333333333");
+	}*/
 	public void logging(){
 	try {
 	    Handler handler = new FileHandler("OutFile.log");

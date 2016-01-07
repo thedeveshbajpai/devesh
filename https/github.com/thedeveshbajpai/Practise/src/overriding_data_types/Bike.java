@@ -13,5 +13,9 @@ import java.io.FileNotFoundException;
 		System.out.println("Bike.overridingMethod()");
 	}
 	void logging(){}
+	void fun(){}
+	public int java(){
+		return 2;
+	}
 }
 

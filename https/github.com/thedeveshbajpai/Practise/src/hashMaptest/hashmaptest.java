@@ -19,5 +19,6 @@ public class hashmaptest {
 		while(itr.hasNext()){
 			System.out.print(" "+itr.next());
 		}
+		System.out.println(" map get "+hm.get(null));
 	}
 }
